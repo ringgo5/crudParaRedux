@@ -1,0 +1,23 @@
+Vamos a crear un CRUD facilito para pasarlo a redux
+Creamos el proyecto ng new crudParaRedux
+Instalamos bootrstrap:
+    npm install bootstrap
+    Añadimos el enlace de bootstrap en el angular.json
+    ya tenemos el proyecto, funciona con ng serve
+    Vamos al html del app.component y borramos todo
+
+Probamos metiendo un gradiente ,para ello vamos a uigradients. Añadimos heith:100vh para que no salgan filas y se expanda todo en un cuadrado(antes aparecía como filas)
+Creamos el html, haremos un div container, un div row y 2 div de col(de 8 y de 4)
+
+Creamos la carpeta models y creamos la class usuario con sus atributos
+
+(para usar formulario agregar formBuild y formReactives(para que lo lea el html))
+
+
+(
+Creamos la accion en actions, en el reducer las unimos. En el componente se inyecta el AppStore. EL cual nos suscribimos en el ngOninit diciendole en cual 
+nos vamos a fijar y dentro del suscrbided comvertimos las variables. Ahora en los metodos que usaremos en el html,hacemos las llamadas a las acciones que
+tenemos en nuestro archivo actions.
+Esta es una conclusión que he llegado. 27-04-2023 a las 0:40
+
+)
