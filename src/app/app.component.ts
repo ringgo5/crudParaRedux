@@ -16,6 +16,7 @@ export class AppComponent implements OnInit {
   formulario1!: FormGroup;
   id:number=4;
   empleadoSeleccionado:Usuario=new Usuario(0,"","","") //para manejar la edición
+  seleccionado:boolean=false;
   usuarioArray: Usuario[] = [
     {
       id: 1,
@@ -77,9 +78,16 @@ export class AppComponent implements OnInit {
     this.usuarioArray = lista
 
   }
-  agregarOEditarUsuario(usuario:Usuario) {
+  agregarUsuario(usuario:Usuario) {
 
-    /*const {descripcion,numero}=this.ingresoForm.value;
+   
+       if(this.seleccionado==true){
+        this.empleadoSeleccionado=usuario;
+
+        this.seleccionado=false;
+        
+       }else{
+         /*const {descripcion,numero}=this.ingresoForm.value;
     const ingresoEgreso = new IngresoEgreso(descripcion,numero,this.tipo) */
     this.id=0;
 
@@ -91,9 +99,14 @@ export class AppComponent implements OnInit {
         this.usuarioArray.push(usuario)
         console.log(this.usuarioArray)
        // this.formulario1.reset()//reseteamos el form
+
+       }
+       this.formulario1.reset()
   }
 
   editar(usuario:Usuario){
+    this.seleccionado=true;
+    console.log(this.seleccionado)
     this.empleadoSeleccionado=usuario
     console.log(this.empleadoSeleccionado)
  /*   this.formulario1.nombre=usuario.nombre
