@@ -21,3 +21,6 @@ tenemos en nuestro archivo actions.
 Esta es una conclusión que he llegado. 27-04-2023 a las 0:40
 
 )
+Para el cambio a redux,en el curso nos decia que instalasemos typescript,para poder usarlo(lo coge de github,las instrucciones,
+npm install -g ts-node
+npm install -g typescript)

@@ -49,4 +49,9 @@
     </div>
   </div>
 </div>
-<button (click)="cargar()" class="btn btn-info">cargar</button>
+
+<button 
+[disabled]="cargando"
+(click)="cargar()" class="btn btn-info  mt-auto">cargar</button>
+
+

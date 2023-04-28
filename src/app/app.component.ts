@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Usuario } from './modelos/usuario.model';
 //PRUEBA
-import { FormBuilder, FormGroup, NgModel, Validators, } from '@angular/forms'
+import { FormBuilder, FormGroup, Validators, } from '@angular/forms'
 
 
 @Component({
@@ -16,7 +16,8 @@ export class AppComponent implements OnInit {
   formulario1!: FormGroup;
   id:number=4;
   empleadoSeleccionado:Usuario=new Usuario(0,"","","") //para manejar la edición
-  seleccionado:boolean=false;
+  seleccionado:boolean=false;//para editar
+  
   usuarioArray: Usuario[] = [
     {
       id: 1,
@@ -111,7 +112,7 @@ export class AppComponent implements OnInit {
     console.log(this.empleadoSeleccionado)
  /*   this.formulario1.nombre=usuario.nombre
     this.formulario1.email=usuario.email
-    this.formulario1.apellidos1=usuario.apellido*/
+    this.formulario1.apellidos1=usuario.apellidoo*/
 
     
   }
