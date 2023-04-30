@@ -1,0 +1,12 @@
+<li class="list-group-item list-group-item-action mt-4 d-flex justify-content-between align-items-center"
+    [class.active]="editando">
+    <input type="checkbox" class="toggle" #inputFisico (blur)="terminarEdicion()">
+    <label  > {{todo?.nombre}}</label>
+    <label > {{todo?.apellido}}</label>
+    <label > {{todo?.email}}</label>
+    <div >
+        <button  (click)="editar(todo)" class="btn btn-info mr-2">editar</button>  
+        <button  class="btn btn-danger mr-2">borrar</button>
+    </div>
+  </li>
+ 
