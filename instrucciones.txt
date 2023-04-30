@@ -24,3 +24,60 @@ Esta es una conclusión que he llegado. 27-04-2023 a las 0:40
 Para el cambio a redux,en el curso nos decia que instalasemos typescript,para poder usarlo(lo coge de github,las instrucciones,
 npm install -g ts-node
 npm install -g typescript)
+
+
+Copio todo el proyecto en otra carpeta para modificar y añadirle el redux
+En el reducer(recordar) SOLO ACCIONES SIN PETICIONES. Debe ser una funcion pura. Sin peticiones https ni consultas.
+(si queremos crear componentes sin test --skipTests)
+
+Paso a redux:
+    Instalamos el ngrx. Vamos a su web:
+        instalamos store:  con ng---)   ng add @ngrx/store@latest
+                           con npm--)   npm install @ngrx/store --save
+
+Creo una carpeta con accio nde cargar y un reducer con su accion
+Ahora toca configurar el app.module importando el StoreModule y añadiendo el reducer con el forroot(usuarios:nombrereducer)
+Ahora toca importar el store en nuestro componente. Lo inyectamos en el contrusctor y lo importamos.
+
+Empiezo de nuevo:
+    Vamos a crear una carpeta llamada todos para poner todo lo relacionado con ellos. Una vez creado ,creo un modulo llamado todo
+        ng g m todos/todo   (importamos dicho modulo en app.module.ts)
+    Toca crear los componentes: primero el componente para agregar un todo: ng g c todos/todo-add (comprobar que el modulo llamado todo tenga la importacion de este componente)
+                                                                            ng g c todos/todo-item (sera cada uno de los items de la lista)
+                                                                            ng g c todos/todo-lista( el encargado de agruparme todos los items)
+                                                                            ng g c todos/todo-pagina(el encargado de la página en general)
+
+    Reestructuracion html. Debemos colocar cada cosa en su compoennte. Ponemos solo en el app.component el titulo(por ejemplo)
+
+    Al colocar los componenetes en el html si da el error de que no es conocido(necesitamos la exportacion de cada modulo que queramos usar fuera)
+
+    Instalacion ngrx,modelo,acciones y reducer:
+    Edito el modelo creado, le pongo los atributos y en el constructor (que le voy a dar nombre,apellido,email) le pongo que recibe 3 atributos
+        y le digo que será cada cosa. Nada más aquí
+
+    Dentro de todso, creo un archivo que serán las acciones que haremos dentro de todos los todos
+    Pongo la primera accion que es crearTodo y le damos como argumentos 3,nombre,apellido y email
+    Ahora creamos el reducer dentro de todos(tambien) y le añadimos la accion de crear. Em vez de usar push usaremos [...state]
+    Debemos siempre devolver un estado y prevenir la mutación. [...state] con esto lo "dividimos" todo y lo separamos por cada item.
+    Si fuera un primitivo, no haría falta. SÓLO con objetos
+    Toca el storeModule. Lo configuramos en app.module con el forrrot
+    Hemos creado la accion,el reducer y configurado el store. Tambien instalado ngrx(me ha faltado instalar los Devtools,desde gnrx)
+    hasta aqui no vemos nada en redux.Instalamos devtools par aello.
+    necesitamos formularioReactivos. EN module.ts
+
+    Para realizar la primera accion(crearUsuario) nos vamos a todo-add.component. Añadimos primero la variable para el formBuild
+
+    Lo que pongamos en el store y en la acción:
+    dispatch(crearTodo({nombre: this.formularioDatos.value, apellido: this.formularioDatos.value, email: this.formularioDatos.value}) 
+    será lo que salga en nuestro nodo de redux
+
+    Desplegar los todos:
+        Ponemos una variable llamada todos: Usuario[]:[]
+        En el ngOnit hacemos la suscripcion y luego en el html añadimos [todo]="todo" para pasarle una referencia. Esta variable debemos crearla en todo-item-component
+
+    (ponemos [formcontrol]="xx" cuando xx es una propiedad directa de angular, es decir, cuando hemos creado esa propiedad en el component.ts)
+
+    Para que solo se marque uno, ponemos un blur con un metood(terminarEdicion()). SImplemente le decimos dentro del metodo que this.editando = false,
+    ya que hmos configurado que aparezca seleecionado SOLO cuando la propiedad editando sea true. Lo importante es el blur
+
+Me he quedado casi acabado:. Solo me falta que al editar se rellene los inputs de arriba
