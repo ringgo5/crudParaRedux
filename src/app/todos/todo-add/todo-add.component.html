@@ -1,13 +1,14 @@
 <div class="card-title">
     Inserta un nuevo empleado
-    <div class="form-group" [formControl]="formularioDatos">
+    <form  [formGroup]="formularioDatos">
       
-        <input name="nombre" type="text" placeholder="nombre" formControlName="nombre" >
-        <input name="apellido" type="text" placeholder="apellido"  >
-        <input name="email" type="text" placeholder="email"  >
+        <input class="form-group" name="nombre" type="text" placeholder="nombre" formControlName="nombre" >
+        <input class="form-group" name="apellido" type="text" placeholder="apellido" formControlName="apellido" >
+        <input class="form-group" name="email" type="text" placeholder="email" formControlName="email" >
         
-        <div ><button (click)="agregar()" class="btn btn-primary mt-2 " type="submit">aceptar</button></div>
+        <div><button (click)="agregar()" class="btn btn-primary mt-2 " type="submit"
+                        [disabled]="formularioDatos.invalid">aceptar</button></div>
       
       
-    </div>
+    </form>
   </div>
