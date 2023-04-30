@@ -1,0 +1,13 @@
+<div class="card-title">
+    Inserta un nuevo empleado
+    <div class="form-group" [formControl]="formularioDatos">
+      
+        <input name="nombre" type="text" placeholder="nombre" formControlName="nombre" >
+        <input name="apellido" type="text" placeholder="apellido"  >
+        <input name="email" type="text" placeholder="email"  >
+        
+        <div ><button (click)="agregar()" class="btn btn-primary mt-2 " type="submit">aceptar</button></div>
+      
+      
+    </div>
+  </div>
